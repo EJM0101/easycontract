@@ -1,6 +1,8 @@
-import html2pdf from 'html2pdf.js';
+export async function exportToPDF(title, clauses) {
+  if (typeof window === 'undefined') return;
 
-export function exportToPDF(title, clauses) {
+  const html2pdf = (await import('html2pdf.js')).default;
+
   const container = document.createElement('div');
   container.style.padding = '20px';
 
